@@ -1,0 +1,12 @@
+<h1>Recipes</h1>
+
+<%= link_to 'New Recipe', new_recipe_path %>
+
+<% @recipes.each do |recipe| %>
+    <div>
+        <p> <%= recipe.name %> </p>
+        <time> Demora <%= recipe.time_to_make %> minutos
+        <%= button_to 'Delete', recipe_path(recipe), method: :delete, data: {
+            confirm: 'Are ypu sure?' } %>
+    </div>
+<% end %>

@@ -1,0 +1,785 @@
+Started GET "/" for 127.0.0.1 at 2023-10-18 16:03:56 -0300
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.4ms | Allocations: 375)
+Completed 200 OK in 131ms (Views: 31.7ms | ActiveRecord: 0.0ms | Allocations: 8784)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-10-18 19:12:38.251361', '2023-10-18 19:12:38.251365') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRecipes (20231018191023)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "ingredients" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231018191023') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2023-10-18 16:28:33 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.4ms | Allocations: 375)
+Completed 200 OK in 48ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 4828)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 16:28:56 -0300
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 87)
+  Rendered layout layouts/application.html.erb (Duration: 487.6ms | Allocations: 90764)
+Completed 500 Internal Server Error in 501ms (ActiveRecord: 0.0ms | Allocations: 91751)
+
+
+  
+ActionView::Template::Error (Permission denied @ rb_file_s_rename - (C:/Users/13973596760/template-basic/tmp/cache/assets/sprockets/v4.0.0/Na/Nayjs7KJblijwH6CaT-PBe4eIZGgJUOMg2gEZrcMubE.cache.27600.9496.241954, C:/Users/13973596760/template-basic/tmp/cache/assets/sprockets/v4.0.0/Na/Nayjs7KJblijwH6CaT-PBe4eIZGgJUOMg2gEZrcMubE.cache)):
+  
+sprockets (4.2.1) lib/sprockets/path_utils.rb:362:in `rename'
+sprockets (4.2.1) lib/sprockets/path_utils.rb:362:in `atomic_write'
+sprockets (4.2.1) lib/sprockets/cache/file_store.rb:112:in `set'
+sprockets (4.2.1) lib/sprockets/cache.rb:227:in `set'
+sprockets (4.2.1) lib/sprockets/cache.rb:143:in `set'
+sprockets (4.2.1) lib/sprockets/loader.rb:265:in `store_asset'
+sprockets (4.2.1) lib/sprockets/loader.rb:228:in `load_from_unloaded'
+sprockets (4.2.1) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.1) lib/sprockets/loader.rb:339:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.1) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.1) lib/sprockets/bundle.rb:27:in `call'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.1) lib/sprockets/loader.rb:184:in `load_from_unloaded'
+sprockets (4.2.1) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.1) lib/sprockets/loader.rb:339:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.1) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.1) lib/sprockets/bundle.rb:32:in `block in call'
+C:/Ruby32-x64/lib/ruby/3.2.0/set.rb:511:in `each_key'
+C:/Ruby32-x64/lib/ruby/3.2.0/set.rb:511:in `each'
+sprockets (4.2.1) lib/sprockets/bundle.rb:31:in `call'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.1) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.1) lib/sprockets/loader.rb:184:in `load_from_unloaded'
+sprockets (4.2.1) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.1) lib/sprockets/loader.rb:339:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.1) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.1) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.1) lib/sprockets/base.rb:81:in `find_asset'
+sprockets (4.2.1) lib/sprockets/base.rb:88:in `find_all_linked_assets'
+sprockets (4.2.1) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.1) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.1) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Started GET "/" for ::1 at 2023-10-18 16:29:00 -0300
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 5)
+  Rendered layout layouts/application.html.erb (Duration: 98.0ms | Allocations: 31135)
+Completed 200 OK in 103ms (Views: 99.1ms | ActiveRecord: 0.0ms | Allocations: 31413)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 16:33:28 -0300
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 86)
+  Rendered layout layouts/application.html.erb (Duration: 40.5ms | Allocations: 13771)
+Completed 200 OK in 56ms (Views: 49.9ms | ActiveRecord: 0.0ms | Allocations: 14683)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 16:36:00 -0300
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 86)
+  Rendered layout layouts/application.html.erb (Duration: 77.3ms | Allocations: 16841)
+Completed 200 OK in 110ms (Views: 103.4ms | ActiveRecord: 0.0ms | Allocations: 17751)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 16:47:18 -0300
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 86)
+  Rendered layout layouts/application.html.erb (Duration: 47.6ms | Allocations: 13884)
+Completed 200 OK in 64ms (Views: 57.6ms | ActiveRecord: 0.0ms | Allocations: 14794)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-10-18 16:48:19 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 170)
+  Rendered layout layouts/application.html.erb (Duration: 116.0ms | Allocations: 36403)
+Completed 200 OK in 166ms (Views: 131.6ms | ActiveRecord: 0.0ms | Allocations: 41033)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 16:48:40 -0300
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 86)
+  Rendered layout layouts/application.html.erb (Duration: 47.0ms | Allocations: 13969)
+Completed 200 OK in 64ms (Views: 57.3ms | ActiveRecord: 0.0ms | Allocations: 14882)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 16:49:00 -0300
+  
+SyntaxError (C:/Users/13973596760/template-basic/app/controllers/recipes_controller.rb:8: syntax error, unexpected constant, expecting `end' or dummy end
+        @recipe Recipe.new
+                ^~~~~~
+C:/Users/13973596760/template-basic/app/controllers/recipes_controller.rb:12: syntax error, unexpected constant, expecting `end' or dummy end
+        @recipe Recipe.new(recipe_params)
+                ^~~~~~
+):
+  
+app/controllers/recipes_controller.rb:8: syntax error, unexpected constant, expecting `end' or dummy end
+app/controllers/recipes_controller.rb:12: syntax error, unexpected constant, expecting `end' or dummy end
+Started GET "/" for 127.0.0.1 at 2023-10-18 16:49:18 -0300
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 82)
+  Rendered layout layouts/application.html.erb (Duration: 53.9ms | Allocations: 13971)
+Completed 200 OK in 73ms (Views: 66.8ms | ActiveRecord: 0.0ms | Allocations: 14883)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 16:49:44 -0300
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 130)
+  Rendered layout layouts/application.html.erb (Duration: 41.6ms | Allocations: 13989)
+Completed 200 OK in 67ms (Views: 52.4ms | ActiveRecord: 0.0ms | Allocations: 14904)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 16:53:45 -0300
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 2177)
+Completed 200 OK in 18ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 2442)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 17:00:18 -0300
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 124)
+  Rendered layout layouts/application.html.erb (Duration: 45.4ms | Allocations: 13984)
+Completed 200 OK in 63ms (Views: 55.3ms | ActiveRecord: 0.0ms | Allocations: 14898)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 17:00:36 -0300
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 2176)
+Completed 200 OK in 22ms (Views: 16.8ms | ActiveRecord: 0.0ms | Allocations: 2440)
+
+
+Started GET "/new" for 127.0.0.1 at 2023-10-18 17:00:42 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/new"):
+  
+Started GET "/" for 127.0.0.1 at 2023-10-18 17:01:56 -0300
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 206)
+  Rendered layout layouts/application.html.erb (Duration: 42.1ms | Allocations: 14049)
+Completed 200 OK in 71ms (Views: 52.9ms | ActiveRecord: 0.0ms | Allocations: 14963)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:02:01 -0300
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 81)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 2299)
+Completed 200 OK in 107ms (Views: 12.0ms | ActiveRecord: 3.7ms | Allocations: 18833)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:02:05 -0300
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 2192)
+Completed 200 OK in 17ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 2471)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 17:02:12 -0300
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 2218)
+Completed 200 OK in 18ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 2484)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:02:15 -0300
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 0.1ms | Allocations: 5)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 2201)
+Completed 200 OK in 19ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 2483)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:02:44 -0300
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 0.1ms | Allocations: 5)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 2195)
+Completed 200 OK in 17ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 2474)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:06:23 -0300
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 0.2ms | Allocations: 5)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 2192)
+Completed 200 OK in 17ms (Views: 13.0ms | ActiveRecord: 0.0ms | Allocations: 2467)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:06:35 -0300
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1236)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1331)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 4.0ms | Allocations: 5682)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= form_with model: @recipe do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :recipe_name %>
+
+    <%= form.label :ingredients %>
+    <%= form.text_area :ingredients, id: :recipe_ingredients %>
+    <%= form.label :stars %>
+    <%= form.number_field :stars, id: :recipe_stars: %>
+    <%= form.submit %>
+<% end %>
+):
+1:    <%= form_with model: @recipe do |form| %>
+2:        <%= form.label :name %>
+3:        <%= form.text_field :name, id: :recipe_name %>
+4:    
+5:        <%= form.label :ingredients %>
+6:        <%= form.text_area :ingredients, id: :recipe_ingredients %>
+7:        <%= form.label :stars %>
+8:        <%= form.number_field :stars, id: :recipe_stars: %>
+9:        <%= form.submit %>
+10:    <% end %>
+  
+app/views/recipes/new.html.erb:8: syntax error, unexpected ':', expecting ')'
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:06:47 -0300
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 34.2ms | Allocations: 3034)
+  Rendered layout layouts/application.html.erb (Duration: 76.8ms | Allocations: 16681)
+Completed 200 OK in 127ms (Views: 86.9ms | ActiveRecord: 5.8ms | Allocations: 20993)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:13:06 -0300
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1374)
+  Rendered layout layouts/application.html.erb (Duration: 41.2ms | Allocations: 15023)
+Completed 200 OK in 62ms (Views: 50.1ms | ActiveRecord: 0.0ms | Allocations: 18679)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2023-10-18 17:13:12 -0300
+Processing by RecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"", "ingredients"=>"", "stars"=>""}, "commit"=>"Create Recipe"}
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms | Allocations: 466)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 17:13:12 -0300
+Processing by RecipesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 141)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 2332)
+Completed 200 OK in 18ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 2698)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:13:14 -0300
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 864)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 2863)
+Completed 200 OK in 17ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 3140)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2023-10-18 17:13:17 -0300
+Processing by RecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"", "ingredients"=>"", "stars"=>""}, "commit"=>"Create Recipe"}
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms | Allocations: 352)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 17:13:17 -0300
+Processing by RecipesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 2239)
+Completed 200 OK in 16ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 2508)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:13:19 -0300
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 882)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 2881)
+Completed 200 OK in 19ms (Views: 14.9ms | ActiveRecord: 0.0ms | Allocations: 3162)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2023-10-18 17:13:25 -0300
+Processing by RecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"", "ingredients"=>"", "stars"=>"7"}, "commit"=>"Create Recipe"}
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms | Allocations: 355)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 17:13:25 -0300
+Processing by RecipesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 2261)
+Completed 200 OK in 21ms (Views: 13.0ms | ActiveRecord: 0.0ms | Allocations: 2530)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:13:27 -0300
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 869)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 2884)
+Completed 200 OK in 17ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 3161)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2023-10-18 17:14:47 -0300
+Processing by RecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"aaaa", "ingredients"=>"aaaaaaaaaaaa", "stars"=>"3"}, "commit"=>"Create Recipe"}
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms | Allocations: 352)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 17:14:47 -0300
+Processing by RecipesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 2237)
+Completed 200 OK in 16ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 2506)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:16:45 -0300
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 891)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 2890)
+Completed 200 OK in 17ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 3167)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2023-10-18 17:16:50 -0300
+Processing by RecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"asdadsa", "ingredients"=>"adassadasdasdasda", "stars"=>"5"}, "commit"=>"Create Recipe"}
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms | Allocations: 349)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 17:16:50 -0300
+Processing by RecipesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 2218)
+Completed 200 OK in 16ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 2487)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:16:51 -0300
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 882)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 2881)
+Completed 200 OK in 20ms (Views: 16.4ms | ActiveRecord: 0.0ms | Allocations: 3158)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2023-10-18 17:18:18 -0300
+Processing by RecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"asdadsadsadasd", "ingredients"=>"sadadsadsadsadasdsadsad", "stars"=>"5"}, "commit"=>"Create Recipe"}
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms | Allocations: 373)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 17:18:18 -0300
+Processing by RecipesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 2233)
+Completed 200 OK in 17ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 2502)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:18:20 -0300
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 870)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 2869)
+Completed 200 OK in 20ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 3146)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:19:59 -0300
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1380)
+  Rendered layout layouts/application.html.erb (Duration: 41.4ms | Allocations: 15026)
+Completed 200 OK in 63ms (Views: 50.8ms | ActiveRecord: 0.0ms | Allocations: 18681)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2023-10-18 17:20:13 -0300
+Processing by RecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"aBOBORA", "ingredients"=>"?", "stars"=>"2"}, "commit"=>"Create Recipe"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 776)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/recipes_controller.rb:16:in `create'
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:23:42 -0300
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1362)
+  Rendered layout layouts/application.html.erb (Duration: 42.2ms | Allocations: 15009)
+Completed 200 OK in 67ms (Views: 51.1ms | ActiveRecord: 6.2ms | Allocations: 19322)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2023-10-18 17:23:56 -0300
+Processing by RecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"Açafrão", "ingredients"=>"Arroz", "stars"=>"1"}, "commit"=>"Create Recipe"}
+[31mUnpermitted parameters: :name, :ingredients. Context: { controller: RecipesController, action: create, request: #<ActionDispatch::Request:0x000001963d5b3720>, params: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"Açafrão", "ingredients"=>"Arroz", "stars"=>"1"}, "commit"=>"Create Recipe", "controller"=>"recipes", "action"=>"create"} }[0m
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1037)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'stars' for Recipe.):
+  
+app/controllers/recipes_controller.rb:15:in `create'
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:28:29 -0300
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1371)
+  Rendered layout layouts/application.html.erb (Duration: 47.0ms | Allocations: 15018)
+Completed 200 OK in 73ms (Views: 54.3ms | ActiveRecord: 9.1ms | Allocations: 19330)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2023-10-18 17:28:39 -0300
+Processing by RecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"Arroz", "ingredients"=>"aaaa", "stars"=>"2"}, "commit"=>"Create Recipe"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 884)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'stars' for Recipe.):
+  
+app/controllers/recipes_controller.rb:15:in `create'
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddTimeToMakeToRecipes (20231018203216)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231018203216') RETURNING "version"[0m
+  [1m[36mTRANSACTION (9.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:41:35 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1256)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 1351)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 0.0ms | Allocations: 4980)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= form_with model: @recipe do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :recipe_name %>
+
+    <%= form.label :ingredients %>
+    <%= form.text_area :ingredients, id: :recipe_ingredients %>
+    <%= form.label :stars %>
+    <%= form.number_field :stars, id: :recipe_stars %>
+    <%= form.label :time to make %>
+    <%= form.number_field :time_to_make, id: :recipe_time_to_make %>
+    <%= form.submit %>
+<% end %>
+):
+1:    <%= form_with model: @recipe do |form| %>
+2:        <%= form.label :name %>
+3:        <%= form.text_field :name, id: :recipe_name %>
+4:    
+5:        <%= form.label :ingredients %>
+6:        <%= form.text_area :ingredients, id: :recipe_ingredients %>
+7:        <%= form.label :stars %>
+8:        <%= form.number_field :stars, id: :recipe_stars %>
+9:        <%= form.label :time to make %>
+10:        <%= form.number_field :time_to_make, id: :recipe_time_to_make %>
+11:        <%= form.submit %>
+12:    <% end %>
+  
+app/views/recipes/new.html.erb:9: syntax error, unexpected local variable or method, expecting ')'
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:45:12 -0300
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1713)
+  Rendered layout layouts/application.html.erb (Duration: 45.0ms | Allocations: 15395)
+Completed 200 OK in 98ms (Views: 54.4ms | ActiveRecord: 3.9ms | Allocations: 19711)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2023-10-18 17:45:27 -0300
+Processing by RecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"Arroz", "ingredients"=>"Arroz tbm", "stars"=>"2", "time_to_make"=>"25"}, "commit"=>"Create Recipe"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 891)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'stars' for Recipe.):
+  
+app/controllers/recipes_controller.rb:15:in `create'
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:47:09 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1687)
+  Rendered layout layouts/application.html.erb (Duration: 42.8ms | Allocations: 15333)
+Completed 200 OK in 66ms (Views: 51.3ms | ActiveRecord: 0.6ms | Allocations: 19351)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2023-10-18 17:47:43 -0300
+Processing by RecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"Sushi", "ingredients"=>"aaaroz", "stars"=>"33", "time_to_make"=>"12"}, "commit"=>"Create Recipe"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 854)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'stars' for Recipe.):
+  
+app/controllers/recipes_controller.rb:15:in `create'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddStarsToRecipes (20231018205041)
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddStarsToRecipes (20231018205041)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "recipes" ADD "stars" integer DEFAULT 0[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231018205041') RETURNING "version"[0m
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddTimeToMake (20231018205607)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "recipes" ADD "time_to_make" integer DEFAULT 0[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231018205607') RETURNING "version"[0m
+  [1m[36mTRANSACTION (10.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:56:55 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1651)
+  Rendered layout layouts/application.html.erb (Duration: 42.6ms | Allocations: 15297)
+Completed 200 OK in 64ms (Views: 51.0ms | ActiveRecord: 0.0ms | Allocations: 18919)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2023-10-18 17:57:05 -0300
+Processing by RecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"Abobora", "ingredients"=>"Abo", "stars"=>"2", "time_to_make"=>"12"}, "commit"=>"Create Recipe"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 872)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'stars' for Recipe.):
+  
+app/controllers/recipes_controller.rb:15:in `create'
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 17:58:02 -0300
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1045)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 3078)
+Completed 200 OK in 18ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 3353)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2023-10-18 17:58:11 -0300
+Processing by RecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"vbvvv", "ingredients"=>"aaa", "stars"=>"2", "time_to_make"=>"231"}, "commit"=>"Create Recipe"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 807)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'stars' for Recipe.):
+  
+app/controllers/recipes_controller.rb:15:in `create'
+Started GET "/" for 127.0.0.1 at 2023-10-18 17:59:34 -0300
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:5
+  Rendered recipes/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 1092)
+  Rendered layout layouts/application.html.erb (Duration: 47.4ms | Allocations: 14939)
+Completed 200 OK in 96ms (Views: 50.5ms | ActiveRecord: 4.4ms | Allocations: 17712)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2023-10-18 18:04:11 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 32.7ms | Allocations: 4305)
+  Rendered layout layouts/application.html.erb (Duration: 142.5ms | Allocations: 38869)
+Completed 200 OK in 262ms (Views: 159.3ms | ActiveRecord: 0.4ms | Allocations: 59716)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2023-10-18 18:04:22 -0300
+Processing by RecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"AAAAA", "ingredients"=>"bbbbbbbbbbbb", "stars"=>"3", "time_to_make"=>"12"}, "commit"=>"Create Recipe"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recipes_controller.rb:16:in `create'
+  [1m[36mRecipe Create (3.1ms)[0m  [1m[32mINSERT INTO "recipes" ("name", "ingredients", "created_at", "updated_at", "stars", "time_to_make") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "AAAAA"], ["ingredients", "bbbbbbbbbbbb"], ["created_at", "2023-10-18 21:04:22.362177"], ["updated_at", "2023-10-18 21:04:22.362177"], ["stars", 3], ["time_to_make", 12]]
+  ↳ app/controllers/recipes_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recipes_controller.rb:16:in `create'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 333ms (ActiveRecord: 3.8ms | Allocations: 3242)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 18:04:22 -0300
+Processing by RecipesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:5
+  Rendered recipes/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1184)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 3184)
+Completed 200 OK in 39ms (Views: 15.3ms | ActiveRecord: 0.1ms | Allocations: 4836)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 18:04:30 -0300
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:5
+  Rendered recipes/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 716)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 2716)
+Completed 200 OK in 20ms (Views: 16.0ms | ActiveRecord: 0.1ms | Allocations: 2998)
+
+
+Started DELETE "/recipes/1" for 127.0.0.1 at 2023-10-18 18:04:32 -0300
+Processing by RecipesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:22:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recipes_controller.rb:23:in `destroy'
+  [1m[36mRecipe Destroy (1.8ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/recipes_controller.rb:23:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recipes_controller.rb:23:in `destroy'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 128ms (ActiveRecord: 2.2ms | Allocations: 14977)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 18:04:32 -0300
+Processing by RecipesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:5
+  Rendered recipes/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 2575)
+Completed 200 OK in 17ms (Views: 13.2ms | ActiveRecord: 0.1ms | Allocations: 2855)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-18 18:04:35 -0300
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:5
+  Rendered recipes/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 386)
+  Rendered layout layouts/application.html.erb (Duration: 21.8ms | Allocations: 2605)
+Completed 200 OK in 26ms (Views: 22.9ms | ActiveRecord: 0.1ms | Allocations: 2886)
+
+

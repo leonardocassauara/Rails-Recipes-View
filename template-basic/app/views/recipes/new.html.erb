@@ -1,0 +1,12 @@
+<%= form_with model: @recipe do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :recipe_name %>
+
+    <%= form.label :ingredients %>
+    <%= form.text_area :ingredients, id: :recipe_ingredients %>
+    <%= form.label :stars %>
+    <%= form.number_field :stars, id: :recipe_stars %>
+    <%= form.label :time_to_make %>
+    <%= form.number_field :time_to_make, id: :recipe_time_to_make %>
+    <%= form.submit %>
+<% end %>
